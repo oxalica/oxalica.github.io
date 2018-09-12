@@ -1,4 +1,46 @@
 articles:
+- slug: "docker"
+  title: "Notes about Docker"
+  created: 2018-09-13T21:38:57+0800
+  tags:
+  - note
+  - docker
+  preview: |
+    > Docker 大概就是一个轻量 VM 罢了。
+
+- slug: "router"
+  title: "Notes about Router"
+  created: 2018-09-11T16:35:00+0800
+  tags:
+  - "note"
+  - "network"
+  - "linux"
+  preview: |
+    > 路由器不过是一台低配 Linux 罢了
+
+- slug: "markdown"
+  title: "Notes about Markdown"
+  created: 2018-09-06T00:53:00+0800
+  tags:
+  - "note"
+  - "markdown"
+  preview: |
+    > _Markdown_ 不过是个极简文本排版语言罢了。
+
+- slug: "letsencrypt"
+  title: "Notes about Let's Encrypt Certbot"
+  created: 2018-09-06T00:10:00+0800
+  tags:
+  - "note"
+  - "letsencrypt"
+  - "ssl"
+  - "linux"
+  - "certbot"
+  preview: |
+    > [_Let's Encrypt_](https://letsencrypt.org/) 不过是个免费 SSL 证书签发单位罢了。
+
+    > [_Certbot_](https://certbot.eff.org/) 不过是个自动 SSL 证书签发/续命脚本罢了。
+
 - slug: "about"
   title: "About"
   created: 2016-01-31T15:56:13.532+0800
