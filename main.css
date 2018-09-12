@@ -1,0 +1,265 @@
+/* Global */
+
+body { /* Stiky footer */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #eee;
+  color: #333;
+}
+
+a {
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+
+.orz-container {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+#main-header {
+  padding-bottom: 1em;
+  text-align: center;
+  background-color: #222;
+  box-shadow: 0 .2em .3em rgba(0, 0, 0, .4);
+}
+
+#main-header h1 {
+  display: inline-block;
+  margin-top: 2em;
+  padding: 0.5em;
+  font-size: 2em;
+  border-radius: .3em;
+  background: rgba(192, 192, 192, .5);
+}
+
+#main-header h1 a {
+  color: #fff;
+  text-decoration: none;
+  transition: text-shadow .2s;
+}
+
+#main-header h1 a:hover {
+  text-shadow: #fff 0 0 .3em;
+}
+
+#main-header nav {
+  margin-top: 1em;
+  text-align: left;
+}
+
+#main-header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#main {
+  flex: 1;
+}
+
+#main-footer {
+  padding-bottom: 2em;
+  color: #888;
+  background-color: #222;
+}
+
+#main-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Nav animation */
+
+.animation-bracket:before, .animation-bracket:after {
+	display: inline-block;
+	transition: all .2s ease-out;
+	opacity: 0;
+}
+
+.animation-bracket:before {
+	margin-right: .5em;
+	content: '<';
+	transform: translateX(1em);
+}
+
+.animation-bracket:after {
+	margin-left: .5em;
+	content: '>';
+	transform: translateX(-1em);
+}
+
+.animation-bracket:hover:before, .animation-bracket:hover:after {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Article */
+
+.article {
+  margin: 2em 0;
+  display: block;
+  overflow: hidden;
+  box-shadow: .1em .2em .3em rgba(0, 0, 0, .2);
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.article > * {
+  padding: 0 1.3rem;
+}
+
+.article > header {
+  display: flex;
+  padding-left: 1rem;
+  align-items: center;
+  border-left: .3rem solid;
+}
+
+.article > header h1 {
+  flex: 1;
+  margin: 0;
+  padding: .6em 0;
+  font-weight: bold;
+  font-size: 1.6em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.article > header a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .2s ease-in;
+}
+
+.article > header a:hover {
+  opacity: .7;
+}
+
+.article > header time {
+  margin-left: 1em;
+  color: #999;
+  cursor: default;
+}
+
+.article > header time i {
+  margin-right: .5em;
+}
+
+.article > footer {
+  display: block;
+  border-top: 1px dashed #ddd;
+}
+
+.tags {
+  padding: 0;
+  margin: .5em 0;
+  list-style: none;
+}
+
+.tags > li {
+  display: inline-block;
+  margin-right: .5em;
+  line-height: 2;
+}
+
+.tags a {
+  padding-right: .5em;
+  opacity: .7;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .15s ease-out;
+}
+
+.tags i {
+  transition: transform .15s ease-out;
+}
+
+.tags a:hover {
+  opacity: 1;
+}
+
+.tags a:hover i {
+  transform: rotate(-10deg) translate(.03em,0);
+}
+
+/* Article content */
+
+.article-content {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.article-content p, 
+.article-content ol, 
+.article-content ul,
+.article-content blockquote {
+  margin: .6em 0;
+}
+
+.article-content ol, .article-content ul {
+  padding-left: 1.5em;
+  list-style-position: outside;
+}
+
+.article-content blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 2em;
+  padding-right: 1em;
+  overflow: hidden;
+  box-shadow: 0 0 .3em #ccc;
+}
+
+.article-content blockquote::before {
+  content: '“';
+  font-size: 2em;
+  float: left;
+  margin-left: -1.4em;
+}
+
+.article-content :not(pre) > code {
+  padding: 1px 3px;
+  font-family: Consolas, Monaco, monospace;
+  font-size: .95em;
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  border-radius: .3em;
+  background: #eee;
+}
+
+.article-content pre {
+  padding: .5em;
+  font-family: Consolas, Monaco, monospace;
+  font-size: .95em;
+  word-wrap: break-word;
+  background: #eee;
+}
+
+.article-content h1 {
+  margin-top: 1.5em;
+  font-size: 1.5em;
+}
+
+.article-content h2 {
+  margin-top: 1.2em;
+  font-size: 1.2em;
+}
+
+.article-content h1:first-child,
+.article-content h2:first-child {
+  margin-top: 0;
+}
+
+.article-content a {
+  color: #000;
+}

@@ -1,0 +1,51 @@
+articles:
+- slug: "about"
+  title: "Notes about Markdown"
+  created: "2018-09-06T00:11:22+0800"
+  tags:
+  - "notes"
+  - "markdown"
+  preview: |
+    > Hello, world
+    > 
+    > > WTF?
+    > 
+    > Hello, another world!
+    
+    As we all know, The following $(f)$ is stupid.
+
+    $[ f(x) = x^2 + 1 ]$
+
+    Oh, shxt, it cost me $20 to buy such a junk. $20!!!
+
+    A long long long long long long long long long long long long long long long long long 
+    long long long line.
+    
+    A new line
+    
+    - a
+      - b
+    - c
+
+
+    1. 1
+    2. 2
+
+    The the the the the the the the the the the the the the `code code one` is great.
+
+    ```
+    a, b = map(int, input().split())
+    if a + b != 42:
+      print(a + b)
+    ```
+
+- slug: "letsencrypt"
+  title: "Notes about Let's Encrypt Certbot"
+  created: "2018-09-06T00:10:00+0800"
+  preview: "No preview"
+  tags:
+  - "notes"
+  - "letsencrypt"
+  - "ssl"
+  - "ubuntu"
+  - "certbot"

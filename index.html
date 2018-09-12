@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>_HOOCCOOH_</title>
+
+  <link href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/KaTeX/0.9.0/katex.min.css" rel="stylesheet">
+  <link href="./main.css" rel="stylesheet">
+
+  <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js" defer></script>
+  <script src="//cdn.bootcss.com/js-yaml/3.11.0/js-yaml.min.js" defer></script>
+  <script src="//cdn.bootcss.com/mustache.js/2.3.0/mustache.min.js" defer></script>
+  <script src="//cdn.bootcss.com/marked/0.4.0/marked.min.js" defer></script>
+  <script src="//cdn.bootcss.com/KaTeX/0.9.0/katex.min.js" defer></script>
+  <script src="//cdn.bootcss.com/KaTeX/0.9.0/contrib/auto-render.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+
+<body>
+  <header id="main-header">
+    <h1>
+      <a href="/">
+        _HOOCCOOH_
+      </a>
+    </h1>
+    <nav class="container">
+      <a class="animation-bracket" href="/">Home</a>
+      <a class="animation-bracket" href="/?article=about">About</a>
+    </nav>
+  </header>
+  <main id="main">
+    <div class="container">
+      <div class="orz-container">
+        <noscript>
+          Enable Javascript please... QwQ
+        </noscript>
+        <span class="fa fa-spinner fa-spin"></span>
+      </div>
+    </div>
+  </main>
+  <footer id="main-footer">
+    <div class="container">
+      <p>Powered by Github Pages.</p>
+      <p>
+        <a href="https://github.com/uHOOCCOOHu" target="_blank">
+          @uHOOCCOOHu
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="text/template" id="templ-main">
+    {{# error }}
+      <div class="orz-container">
+        {{ error }}
+      </div>
+    {{/ error }}
+    {{^ error }}
+      {{# articles }}
+        {{> article }}
+      {{/ articles }}
+    {{/ error }}
+  </script>
+  <script type="text/template" id="templ-article">
+    <article class="article">
+      <header>
+        <h1>
+          <a href="/?article={{ slug }}" target="_blank">
+            {{ title }}
+          </a>
+        </h1>
+        <time title="{{ created }}">
+          {{# fmtLocalDate }}
+            {{{ created }}}
+          {{/ fmtLocalDate }}
+        </time>
+      </header>
+      <div class="article-content">
+        {{# fmtMarkdown }}
+          {{# content }}
+            {{{ content }}}
+          {{/ content }}
+          {{^ content }}
+            {{{ preview }}}
+          {{/ content }}
+        {{/ fmtMarkdown }}
+      </div>
+      <footer>
+        {{> tagList }}
+      </footer>
+    </article>
+  </script>
+  <script type="text/template" id="templ-tag-list">
+    <ul class="tags">
+      {{# tags }}
+        <li>
+          <a href="/?tags={{ . }}">
+            <i class="icon fa fa-tag"></i>
+            {{ . }}
+          </a>
+        </li>
+      {{/ tags }}
+    </ul>
+  </script>
+</body>
+
+</html>
