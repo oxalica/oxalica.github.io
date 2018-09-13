@@ -196,18 +196,39 @@ a {
 
 .article-content {
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .article-content {
-  line-height: 2.0;
+  line-height: 1.6;
 }
 
-/* .article-content p,
+.article-content p,
 .article-content ol,
 .article-content ul,
+.article-content pre,
 .article-content blockquote {
-} */
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.article-content h1 {
+  margin-top: 1.5em;
+  font-size: 1.3em;
+}
+
+.article-content h2 {
+  margin-top: 1.5em;
+  font-size: 1.1em;
+}
+
+.article-content *:first-child {
+  margin-top: 0;
+}
+
+.article-content *:last-child {
+  margin-bottom: 0;
+}
 
 .article-content ol, .article-content ul {
   padding-left: 1.5em;
@@ -217,17 +238,19 @@ a {
 .article-content blockquote {
   margin-left: 0;
   margin-right: 0;
-  padding-left: 2em;
-  padding-right: 1em;
+  padding: 1em 1em 1em 2em;
   overflow: hidden;
   box-shadow: 0 0 .3em #ccc;
 }
 
 .article-content blockquote::before {
-  content: '“';
-  font-size: 2em;
+  content: '\f10d'; /* quote-left */
+  font-family: FontAwesome;
   float: left;
-  margin-left: -1.4em;
+  width: 0;
+  margin-left: -1.5em;
+  margin-top: -1em;
+  color: #ccc;
 }
 
 .article-content :not(pre) > code {
@@ -248,21 +271,20 @@ a {
   background: #eee;
 }
 
-.article-content h1 {
-  margin-top: 1.5em;
-  font-size: 1.5em;
-}
-
-.article-content h2 {
-  margin-top: 1.2em;
-  font-size: 1.2em;
-}
-
-.article-content h1:first-child,
-.article-content h2:first-child {
-  margin-top: 0;
-}
-
 .article-content a {
-  color: #000;
+  color: inherit;
+  text-decoration: dotted underline;
+}
+
+.article-content a:hover {
+  text-decoration: solid underline;
+}
+
+.article-content hr {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  height: 0;
+  box-sizing: content-box;
+  border-top: solid 1px;
+  border-bottom: none;
 }
