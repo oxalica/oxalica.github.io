@@ -2,10 +2,10 @@
 title: About
 created: 2016-01-31T15:56:13+0800
 modified:
+- time: 2018-09-13T16:32:00+0800
 - time: 2018-09-13T01:50:00+0800
 tags:
 - blog
-- !
 -->
 
 > 如果对这个 blog 有啥疑问、意见、建议，发现了 bug，要提 feature request

@@ -64,15 +64,28 @@
       {{# articles }}
         {{> article }}
       {{/ articles }}
+      {{^ articles }}
+        <div class="orz-container">
+          No Article Found
+        </div>
+      {{/ articles }}
     {{/ error }}
   </script>
   <script type="text/template" id="templ-article">
     <article class="article">
       <header>
-        <h1>
-          <a href="/?article={{ slug }}" target="_blank">
+        <h1 title="{{ title }}">
+          {{# titleLink }}
+            <a
+              href="/?article={{# fmtUrlComponent }}{{ slug }}{{/ fmtUrlComponent}}"
+              target="_blank"
+            >
+              {{ title }}
+            </a>
+          {{/ titleLink }}
+          {{^ titleLink }}
             {{ title }}
-          </a>
+          {{/ titleLink }}
         </h1>
         <time title="{{ created }}">
           {{# fmtLocalDate }}
@@ -80,16 +93,18 @@
           {{/ fmtLocalDate }}
         </time>
       </header>
-      <div class="article-content">
-        {{# fmtMarkdown }}
-          {{# content }}
-            {{{ content }}}
-          {{/ content }}
-          {{^ content }}
-            {{{ preview }}}
-          {{/ content }}
-        {{/ fmtMarkdown }}
-      </div>
+      {{^ archiveMode }}
+        <div class="article-content">
+          {{# fmtMarkdown }}
+            {{# content }}
+              {{{ content }}}
+            {{/ content }}
+            {{^ content }}
+              {{{ preview }}}
+            {{/ content }}
+          {{/ fmtMarkdown }}
+        </div>
+      {{/ archiveMode }}
       <footer>
         {{> tagList }}
       </footer>
@@ -99,7 +114,7 @@
     <ul class="tags">
       {{# tags }}
         <li>
-          <a href="/?tags={{ . }}">
+          <a href="/?tags={{# fmtUrlComponent }}{{ . }}{{/ fmtUrlComponent }}">
             <i class="icon fa fa-tag"></i>
             {{ . }}
           </a>

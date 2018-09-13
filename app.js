@@ -8,6 +8,8 @@ $(function () {
     index: null,
     error: null,
     articles: null,
+    archiveMode: false,
+    titleLink: true,
     fmtLocalDate: function () {
       return function (templ, render) {
         const inner = render(templ).trim();
@@ -20,6 +22,11 @@ $(function () {
         return marked(inner);
       };
     },
+    fmtUrlComponent: function () {
+      return function (templ, render) {
+        return encodeURIComponent(render(templ));
+      }
+    },
   };
   window._data = data;
 
@@ -29,7 +36,7 @@ $(function () {
     const articleName = getQueryParam('article');
     const tags = getQueryParam('tags');
     const search = getQueryParam('search');
-    if (articleName !== null) 
+    if (articleName !== null)
       appSingleArticle(articleName);
     else if(tags || search)
       appSearch(tags, search);
@@ -37,11 +44,12 @@ $(function () {
       appIndex();
   }
 
-  function appSingleArticle (articleName) {
+  function appSingleArticle (slug) {
     fetchText({
-      url: './articles/' + articleName + '.md',
+      url: './articles/' + encodeURI(slug) + '.md',
       success: function (rawData) {
-        const ret = parseArticleFile(rawData);
+        data.titleLink = false;
+        const ret = parseArticleFile(slug, rawData);
         if (typeof ret === 'string')
           data.error = ret;
         else
@@ -54,35 +62,52 @@ $(function () {
     });
   }
 
-  function appSearch (tags, search) {
-    data.error = 'Searching is not implemented yet'
-    rerender();
+  function appSearch (targetTag, search) {
+    fetchIndex(function () {
+      data.archiveMode = true;
+      data.articles = data.index.articles.filter(function (article) {
+        return article.tags.some(function (tag) {
+          return tag === targetTag;
+        });
+      });
+      rerender();
+    });
   }
 
   function appIndex () {
+    fetchIndex(function () {
+      data.articles = data.index.articles;
+      rerender();
+    });
+  }
+
+  function fetchIndex (cb) {
     fetchText({
       url: './index.yml',
       success: function (rawData) {
         try {
           data.index = jsyaml.load(rawData);
-          data.articles = data.index.articles;
         } catch (e) {
           data.error = 'Invalid Index Format: ' + e;
+          rerender();
+          return;
         }
+        cb();
       },
       error: function (xhr, errorType, error) {
         data.error = 'Loading Index Failed: ' + errorType + '; ' + error;
+        rerender();
       },
-      complete: rerender,
     });
   }
 
-  function parseArticleFile (rawData) {
+  function parseArticleFile (slug, rawData) {
     const ret = /^\s*<!--([\s\S]*?)-->/.exec(rawData);
     if (ret === null)
       return 'Article Meta Not Found';
     try {
       const meta = jsyaml.load(ret[1]);
+      meta.slug = slug;
       meta.content = rawData;
       return meta;
     } catch (e) {
@@ -94,7 +119,6 @@ $(function () {
     const rendered = Mustache.render(templates.main, data, templates);
     $('#main > .container').html(rendered);
     $('#main > .container .article-content').forEach(function (e) {
-      console.log(e);
       renderMathInElement(e, {
         delimiters: [
           { left: '$(', right: ')$', display: false },
@@ -122,6 +146,6 @@ $(function () {
     const ret = re.exec(location.search);
     if (!ret) return null;
     if (!ret[2]) return '';
-    return decodeURIComponent(ret[2].replace(/\+/g, ' '));
+    return decodeURIComponent(ret[2]);
   }
 });
