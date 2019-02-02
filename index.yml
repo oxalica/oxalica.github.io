@@ -1,4 +1,26 @@
 articles:
+- slug: "rust_double_ref"
+  title: 感性理解 Rust 多重引用与命
+  created: 2019-02-02T01:23:00+0800
+  tags:
+  - rust
+  - lifetime
+  - type
+  preview: |
+    **注意：本文分析为本人随机推断的，没读过 rustc 源码，仅供感性理解，如有错误请 [issue](/?article=about)。**
+
+    考虑 Rust 分可不可变引用，以两层为例，那么我们就有四种情况：
+    - `&'a &'b T`
+    - `&'a &'b mut T`
+    - `&'a mut &'b T`
+    - `&'a mut &'b mut T`
+
+    对上述类型各自解引用（`*`）会得到一个一级引用，显然只有最后一个结果是可变引用，但它们各自的命是多长？
+
+    > 我把“ lifetime ”翻译为“命”，它另一个更广泛的译名是“生命周期”。
+    > 我觉得这个“周期”概念完全是无中生有，所以不太喜欢用。
+    > 你们知道是一个东西就好，我在其他地方也可能这么说，恕不复述。
+
 - slug: "docker"
   title: "Notes about Docker"
   created: 2018-09-13T21:38:57+0800
