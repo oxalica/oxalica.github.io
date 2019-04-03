@@ -1,4 +1,12 @@
 articles:
+- slug: "sqlite"
+  title: "初尝 SQLite"
+  created: 2019-04-04T01:05:13+0800
+  tags:
+  - note
+  - sql
+  - sqlite
+  preview: ~
 - slug: "rust_double_ref"
   title: 感性理解 Rust 多重引用与命
   created: 2019-02-02T01:23:00+0800
