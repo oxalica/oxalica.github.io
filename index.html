@@ -24,13 +24,13 @@
 <body>
   <header id="main-header">
     <h1>
-      <a href="/">
+      <a href="?">
         _HOOCCOOH_
       </a>
     </h1>
     <nav class="container">
-      <a class="animation-bracket" href="/">Home</a>
-      <a class="animation-bracket" href="/?article=about">About</a>
+      <a class="animation-bracket" href="?">Home</a>
+      <a class="animation-bracket" href="?article=about">About</a>
     </nav>
   </header>
   <main id="main">
@@ -77,7 +77,7 @@
         <h1 title="{{ title }}">
           {{# titleLink }}
             <a
-              href="/?article={{# fmtUrlComponent }}{{ slug }}{{/ fmtUrlComponent}}"
+              href="?article={{# fmtUrlComponent }}{{ slug }}{{/ fmtUrlComponent}}"
               target="_blank"
             >
               {{ title }}
@@ -114,7 +114,7 @@
     <ul class="tags">
       {{# tags }}
         <li>
-          <a href="/?tags={{# fmtUrlComponent }}{{ . }}{{/ fmtUrlComponent }}">
+          <a href="?tags={{# fmtUrlComponent }}{{ . }}{{/ fmtUrlComponent }}">
             <i class="icon fa fa-tag"></i>
             {{ . }}
           </a>
