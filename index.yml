@@ -1,4 +1,36 @@
 articles:
+- slug: "btime"
+  title: "Linux 上该死的 文件创建时间/btime/crtime"
+  created: 2019-04-05T03:15:25+0800
+  tags:
+  - c
+  - linux
+  - unix
+  - fs
+  - todo
+  preview: |
+    # 0. Pre
+
+    ```rust
+    Err(Custom { kind: Other, error: StringError("creation time is not available on this platform currently") })
+    ```
+
+    ```text
+    $ stat a
+    File: a
+    Size: 8               Blocks: 8          IO Block: 4096   regular file
+    Device: 10304h/66308d   Inode: 5539622     Links: 1
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/     oxa)   Gid: ( 1000/     oxa)
+    Access: 2019-04-05 03:11:44.957769917 +0800
+    Modify: 2019-04-05 03:11:33.415664402 +0800
+    Change: 2019-04-05 03:11:33.415664402 +0800
+    Birth: -
+    ```
+
+    不支持个鬼咯，老娘用的如此高端文件系统 ext4 连 _文件创建时间_ 都没有的吗？
+
+    **其实当然是有的啦**
+
 - slug: "sqlite"
   title: "初尝 SQLite"
   created: 2019-04-04T01:05:13+0800
