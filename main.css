@@ -269,6 +269,7 @@ a {
   font-size: .95em;
   word-wrap: break-word;
   background: #eee;
+  overflow: auto;
 }
 
 .article-content a {
