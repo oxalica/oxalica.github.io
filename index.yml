@@ -39,6 +39,7 @@ articles:
   - sql
   - sqlite
   preview: ~
+
 - slug: "rust_double_ref"
   title: 感性理解 Rust 多重引用与命
   created: 2019-02-02T01:23:00+0800
@@ -105,7 +106,7 @@ articles:
 
 - slug: "about"
   title: "About"
-  created: 2016-01-31T15:56:13.532+0800
+  created: 2016-01-31T15:56:13+0800
   tags:
   - "blog"
   preview: ~
