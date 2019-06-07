@@ -1,4 +1,23 @@
 articles:
+- slug: "kademlia"
+  title: "粗学 DHT ： Kademlia 算法"
+  created: 2019-06-07T23:24:21+0800
+  tags:
+  - distributed
+  - algorithm
+  preview: |
+    > 最近对 P2P 分布式系统比较感兴趣
+
+    # 0. Pre
+
+    之前在思考“假如每个 IPv6 都随机生成的话，有办法规划低于 $( O(n) )$ 的路由算法吗？”
+
+    群里有人提到了 DHT 可以解决，即 [Distributed Hash Table][dht] ，分布式哈希表。
+
+    于是正好学习一下。（又好久没写 blog 了）
+
+    [dht]: https://en.wikipedia.org/wiki/Distributed_hash_table
+
 - slug: "btime"
   title: "Linux 上该死的 文件创建时间/btime/crtime"
   created: 2019-04-05T03:15:25+0800
