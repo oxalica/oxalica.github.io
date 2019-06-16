@@ -289,3 +289,7 @@ a {
   border-top: solid 1px;
   border-bottom: none;
 }
+
+.article-content img {
+  max-width: 100%;
+}
