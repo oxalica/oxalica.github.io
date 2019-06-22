@@ -8,9 +8,9 @@ articles:
   preview: |
     > 因为最近需要（Ummm，等我 pub 了再加链接），所以在找一个具体完善的 Grammar of Rust Language
 
-    **TLDR: [rust-lang-nursery/wg-grammar][wg_grammar]**
+    **TLDR: [The Rust Reference][rust_reference]**
 
-    [wg_grammar]: https://github.com/rust-lang-nursery/wg-grammar
+    [rust_reference]: https://doc.rust-lang.org/nightly/reference
 
 - slug: "kademlia"
   title: "粗学 DHT ： Kademlia 算法"
