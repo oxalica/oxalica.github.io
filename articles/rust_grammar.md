@@ -4,11 +4,13 @@ created: 2019-07-16T22:49:58+0800
 tags:
 - rust
 - parser
+modified:
+- time: 2019-06-22T18:50:55+0800
 -->
 
 > 因为最近需要（Ummm，等我 pub 了再加链接），所以在找一个具体完善的 Grammar of Rust Language
 
-**TLDR: [rust-lang-nursery/wg-grammar][wg_grammar]**
+**TLDR: [The Rust Reference][rust_reference]**
 
 # 官网上的 [Grammar][official_site]
 
@@ -52,9 +54,15 @@ Keyword 表似乎也是好早之前的。
 当然这个 Repo 也是非常 WIP ，有很多 FIXME ；
 不过运算符优先级和一些优先策略其实问题不大，可以通过其他文档辅助解决。
 
-# ... 总之
+# [The Rust Reference][rust_reference]
 
-**独立文法真就是 WIP ，请继续跟踪 [rust/issues/30942][rfc1331_issue]**
+在 `wg-grammar` 的 `README` 中被提到，是个很详细的文档。
+
+随意翻了下，似乎挺完善了，各个板块都有文法及对应的解释。
+
+也有不同 edition 的对比。
+
+**那就以它为准了。**
 
 [official_site]: https://doc.rust-lang.org/grammar.html
 [src_grammar]: https://github.com/rust-lang/rust/tree/master/src/grammar
@@ -65,3 +73,4 @@ Keyword 表似乎也是好早之前的。
 [rfc1331]: https://github.com/rust-lang/rfcs/blob/master/text/1331-grammar-is-canonical.md
 [rfc1331_issue]: https://github.com/rust-lang/rust/issues/30942
 [issue_comment]: https://github.com/rust-lang/rust/issues/30942#issuecomment-452617641
+[rust_reference]: https://doc.rust-lang.org/nightly/reference
