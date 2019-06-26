@@ -15,7 +15,9 @@ def transDatetime(o: dict, k: str):
     y, m, d, H, M, S, tz = match.groups()
     mul = { '+': 1, '-': -1 }[tz[0]]
     tz = timezone(timedelta(hours = mul * int(tz[1:3]), minutes = mul * int(tz[3:5])))
-    o[k] = datetime(*map(int, (y, m, d, H, M, S)), tzinfo = tz)
+    tm = datetime(*map(int, (y, m, d, H, M, S)), tzinfo = tz)
+    assert tm.timestamp() < datetime.now().timestamp()
+    o[k] = tm
 
 def isSorted(xs: list):
     return all(a <= b for a, b in zip(xs, xs[1:]))

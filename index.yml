@@ -1,7 +1,7 @@
 articles:
 - slug: "rust_grammar"
   title: "寻找 Rust Grammar 之路"
-  created: 2019-07-16T22:49:58+0800
+  created: 2019-06-16T22:49:58+0800
   tags:
   - rust
   - parser
