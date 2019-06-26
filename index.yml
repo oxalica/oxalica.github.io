@@ -1,4 +1,13 @@
 articles:
+- slug: "crypto_security"
+  title: "密码学上需要注意的一些 安全性"
+  created: 2019-06-26T17:23:03+0800
+  tags:
+  - note
+  - crypto
+  preview: |
+    > 感觉 title 怪怪的，不过也找不到一个更合适的词来概括这些内容
+
 - slug: "rust_grammar"
   title: "寻找 Rust Grammar 之路"
   created: 2019-06-16T22:49:58+0800
