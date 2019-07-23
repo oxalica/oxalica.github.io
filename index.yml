@@ -1,4 +1,15 @@
 articles:
+- slug: "show_float"
+  title: "0.1 + 0.2 = ?"
+  created: 2019-07-24T00:32:11+0800
+  tags:
+  - float
+  - meaningless
+  preview: |
+    > [dram][dram]: 我就是想知道为什么浮点误差大家都有，但是 0.1 + 0.2 永远是 JavaScript
+
+    [dram]: https://github.com/dramforever/
+
 - slug: "crypto_security"
   title: "密码学上需要注意的一些 安全性"
   created: 2019-06-26T17:23:03+0800
