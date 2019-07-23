@@ -4,13 +4,16 @@ created: 2018-09-06T00:53:00+0800
 tags:
 - note
 - markdown
+modified:
+- time: 2019-07-24T01:46:21+0800
+  from: 6418505199e239b2470a302dae87c98e06ca1cad
 -->
 
 > _Markdown_ 不过是个极简文本排版语言罢了。
 
 # 0. Pre
 
-虽然经常写 Markdown ，但鉴于总是有突发奇怪需求 <del>忘了</del>，所以记一下注意点好了。
+虽然经常写 Markdown ，但鉴于总是有突发奇怪需求 ~~忘了~~，所以记一下注意点好了。
 
 
 # 1. Standard
