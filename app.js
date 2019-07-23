@@ -1,8 +1,8 @@
-$(function () {
+window.addEventListener('load', function () {
   const templates = {
-    main: $('#templ-main').text(),
-    article: $('#templ-article').text(),
-    tagList: $('#templ-tag-list').text(),
+    main: document.querySelector('#templ-main').innerText,
+    article: document.querySelector('#templ-article').innerText,
+    tagList: document.querySelector('#templ-tag-list').innerText,
   };
   const data = {
     index: null,
@@ -19,7 +19,13 @@ $(function () {
     fmtMarkdown: function () {
       return function (templ, render) {
         const inner = render(templ).trim();
-        return marked(inner);
+        const renderer = new marked.Renderer();
+        renderer.link = function (href, title, text) {
+          return '<a href="' + href + '" title="' + title + '" target="_blank">'
+            + text
+            + '</a>'
+        };
+        return marked(inner, { renderer: renderer });
       };
     },
     fmtUrlComponent: function () {
@@ -45,20 +51,19 @@ $(function () {
   }
 
   function appSingleArticle (slug) {
-    fetchText({
-      url: './articles/' + encodeURI(slug) + '.md',
-      success: function (rawData) {
+    fetchText('./articles/' + encodeURI(slug) + '.md', function (err, rawData) {
+      if (err !== null)
+        data.error = 'Article Not Found';
+      else {
         data.titleLink = false;
         const ret = parseArticleFile(slug, rawData);
         if (typeof ret === 'string')
           data.error = ret;
         else
           data.articles = [ret];
-      },
-      error: function () {
-        data.error = 'Article Not Found'
-      },
-      complete: rerender,
+      }
+
+      rerender();
     });
   }
 
@@ -82,29 +87,26 @@ $(function () {
   }
 
   function fetchIndex (cb) {
-    fetchText({
-      url: './index.yml',
-      success: function (rawData) {
+    fetchText('./index.yml', function (err, rawData) {
+      if (err !== null) {
+        data.error = 'Loading Index Failed: ' + err;
+        rerender();
+      } else {
         try {
           data.index = jsyaml.load(rawData);
+          cb();
         } catch (e) {
           data.error = 'Invalid Index Format: ' + e;
           rerender();
-          return;
         }
-        cb();
-      },
-      error: function (xhr, errorType, error) {
-        data.error = 'Loading Index Failed: ' + errorType + '; ' + error;
-        rerender();
-      },
+      }
     });
   }
 
   function parseArticleFile (slug, rawData) {
     const ret = /^\s*<!--([\s\S]*?)-->/.exec(rawData);
     if (ret === null)
-      return 'Article Meta Not Found';
+      return 'Article Not Found';
     try {
       const meta = jsyaml.load(ret[1]);
       meta.slug = slug;
@@ -117,9 +119,9 @@ $(function () {
 
   function rerender () {
     const rendered = Mustache.render(templates.main, data, templates);
-    $('#main > .container').html(rendered);
-    $('#main > .container .article-content').forEach(function (e) {
-      renderMathInElement(e, {
+    document.querySelector('#main > .container').innerHTML = rendered;
+    document.querySelectorAll('#main > .container .article-content').forEach(function (el) {
+      renderMathInElement(el, {
         delimiters: [
           { left: '$(', right: ')$', display: false },
           { left: '$[', right: ']$', display: true },
@@ -128,17 +130,20 @@ $(function () {
     });
   }
 
-  function fetchText (options) {
-    $.ajax({
-      method: 'GET',
-      url: options.url,
-      mimeType: 'text/plain',
-      dataType: 'text',
-      cache: false,
-      success: options.success,
-      error: options.error,
-      complete: options.complete,
-    });
+  function fetchText (url, cb) {
+    const xhr = new XMLHttpRequest()
+    xhr.addEventListener('load', function () {
+      if (xhr.status === 200)
+        cb(null, xhr.response)
+      else
+        cb(new Error('Error response: ' + xhr.status.toString()))
+    })
+    xhr.addEventListener('error', function () {
+      cb(new Error('Connection error: ' + xhr.statusText))
+    })
+    xhr.open('GET', url)
+    xhr.responseType = 'text'
+    xhr.send()
   }
 
   function getQueryParam (name) {
