@@ -2,6 +2,7 @@
 
 body { /* Stiky footer */
   display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Noto Sans CJK SC", "Noto Sans CJK", "Source Han Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
   min-height: 100vh;
   flex-direction: column;
   background: #eee;
@@ -284,11 +285,12 @@ a {
 
 .article-content a {
   color: inherit;
-  text-decoration: dotted underline;
+  text-decoration: none;
+  border-bottom: 1.5px #000 dotted;
 }
 
 .article-content a:hover {
-  text-decoration: solid underline;
+  border-bottom-style: solid;
 }
 
 .article-content hr {
