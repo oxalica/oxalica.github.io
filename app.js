@@ -21,7 +21,9 @@ window.addEventListener('load', function () {
         const inner = render(templ).trim();
         const renderer = new marked.Renderer();
         renderer.link = function (href, title, text) {
-          return '<a href="' + href + '" title="' + title + '" target="_blank">'
+          return '<a href="' + href
+            + (title !== null ? '" title="' + title : '')
+            + '" target="_blank">'
             + text
             + '</a>'
         };
