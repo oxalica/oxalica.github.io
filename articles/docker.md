@@ -1,9 +1,13 @@
 <!--
 title: Notes about Docker
 created: 2018-09-13T21:38:57+0800
+modified:
+- time: 2018-09-29T02:41:53+0800
+  from: 556ef26387d423ba7719910eacc0898577ab914f
 tags:
 - note
 - docker
+- cli
 -->
 
 > Docker 大概就是一个轻量 VM 罢了。

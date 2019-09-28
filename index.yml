@@ -120,6 +120,7 @@ articles:
   tags:
   - note
   - docker
+  - cli
   preview: |
     > Docker 大概就是一个轻量 VM 罢了。
 
