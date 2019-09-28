@@ -1,4 +1,14 @@
 articles:
+- slug: "scp_rsync"
+  title: "Notes about scp & rsync"
+  created: 2019-09-29T02:17:40+0800
+  tags:
+  - note
+  - linux
+  - cli
+  preview: |
+    > 没啥，就是复制文件而已...
+
 - slug: "show_float"
   title: "0.1 + 0.2 = ?"
   created: 2019-07-24T00:32:11+0800
