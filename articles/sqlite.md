@@ -15,7 +15,7 @@ tags:
 存储数据的话就是打开文件覆写 JSON （ Python 真好用， [`serde_json`](https://crates.io/crates/serde_json) 真好用），
 重要点就 Write-Rename ，反正咱不关心效率是吧。
 
-然后最近在写[拿来同步 OneDrive 的东西](https://github.com/uHOOCCOOHu/onedrive-sync)，
+然后最近在写[拿来同步 OneDrive 的东西](https://github.com/oxalica/onedrive-sync)，
 需要记录远端和本地的目录树状态，以及各种 Metadata ，又需要动态维护，显然不能再 json 一把梭了（
 
 这种嵌入式数据库当然是 SQLite 啦。
