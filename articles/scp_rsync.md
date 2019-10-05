@@ -49,4 +49,4 @@ where
     rsync -vcr --delete . remote:~/some_dir --exclude=.git
   ```
 
-[watch-run]: https://github.com/uHOOCCOOHu/watch-run
+[watch-run]: https://github.com/oxalica/watch-run
