@@ -28,7 +28,8 @@ a {
 }
 
 .spin {
-  display: inline-block;
+  width: .8em;
+  height: .8em;
   animation: spin 2s infinite linear;
 }
 
