@@ -1,4 +1,13 @@
 window.addEventListener('load', function () {
+  function loadCss (href) {
+    var el = document.createElement('link');
+    el.setAttribute('rel', 'stylesheet');
+    el.setAttribute('href', href);
+    document.head.appendChild(el);
+  }
+  loadCss('https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
+  loadCss('https://cdn.bootcss.com/KaTeX/0.9.0/katex.min.css');
+
   const templates = {
     main: document.querySelector('#templ-main').innerText,
     article: document.querySelector('#templ-article').innerText,
