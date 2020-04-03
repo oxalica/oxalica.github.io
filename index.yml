@@ -1,4 +1,19 @@
 articles:
+- slug: "fix_nixos"
+  title: "Log of fixing NixOS"
+  created: 2020-04-04T01:58:18+0800
+  tags:
+  - note
+  - nix
+  - nixos
+  preview: |
+    > 这起 ext4 爆炸事故发生在 2020-02-25 左右，当时写了一些后坑了，现在补上。
+
+    因为未知原因，我的 NixOS 的根文件系统（ext4）炸了，爆了一堆校验错误。
+    用 `fsck.ext4` 修完后，`/nix/store` 里部分文件受影响，很多程序启动错误了。
+
+    这时候需要校验并修复 Nix store 。
+
 - slug: "scp_rsync"
   title: "Notes about scp & rsync"
   created: 2019-09-29T02:17:40+0800
