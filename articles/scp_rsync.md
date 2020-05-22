@@ -5,11 +5,15 @@ tags:
 - note
 - linux
 - cli
+modified:
+- time: 2020-05-23T04:06:08+0800
 -->
 
 > 没啥，就是复制文件而已...
 
 # scp
+
+> 在 `openssh` 包里提供。
 
 ```bash
 $ scp [-Cr] <source_files...> ssh_server:remote_path
@@ -22,13 +26,27 @@ where
 
 # rsync
 
+> 在 `rsync` 包里提供。（废话）
+
 ```bash
 $ rsync [opts...] <source_files...> ssh_server:remote_path
 $ rsync [opts...] ssh_server:remote_path... <local_target>
 ```
 
-where
-- `-v` 显示复制的每个文件（单位是文件）
+无脑版本：`rsync -avz <source> <dest>`
+
+注意 `<source>` 后有带不带 `/` 的区别（而 `<dest>` 没区别）：
+- `rsync -r a b` -> 得到 `a/b/...`
+- `rsync -r a/ b` -> 得到 `b/...`
+
+详细参数：
+- `-a` 归档/备份模式，原模原样复制。**不知道选啥就选它！**保留：
+  - 目录（就是递归复制， `-r`）
+  - 权限，组和用户 ID
+  - 文件时间（**这对下次增量 rsync 很重要**）
+  - 符号链接
+  - 特殊文件（块设备、管道等等）
+- `-v` 显示复制的每个**文件**（但单个文件没有进度，这个见下）
 - `-c` 使用 checksum 比较文件，可能可以减少复制量（默认是大小&修改时间）
 - `-r` 递归复制目录树
 - `-z` 传输压缩，没说算法
@@ -41,6 +59,7 @@ where
 
 # 此外...
 
+- **如果使用 ssh 连接目标，则需要 ssh 在 PATH 里！**在配 systemd service 的时候尤其需要注意。
 - 传大文件用 `scp` 不小心断了，可以用 `rsync --append-verify` 断点续传
 - 实时同步可以用 inotify 配合 rsync ，我写了个脚本 [watch-run][watch-run] 可以方便地
 
