@@ -1,6 +1,8 @@
 <!--
 title: 只通过 ssh 离线调整 root 分区大小
 created: 2021-02-08T00:44:42+0800
+modified:
+- time: 2021-02-08T02:50:11+0800
 tags:
 - ssh
 - nixos
@@ -139,7 +141,7 @@ umount -R /oldroot
 
 # 6. Do anything you want! ... or can you?
 
-再次确认下 `mount` ，任何没有硬盘分区啦！
+再次确认下 `mount` ，确实没有任何硬盘分区啦！
 来开始干活：
 ```shell
 # resize2fs /dev/sda2 199G # 别抄，这是咱的盘
@@ -162,7 +164,8 @@ Linux 很早就引入了 Mount Namespace 的概念。
 它使得每个进程看见的 `mount` 可以局限在自己的 namespace 中，
 而不一定全局一致。
 
-> 实际上 #3 的 `mount --make-rprivate` 就是在调整 Shared subtree ，
+> 实际上 [#3](#3-pivot_root-8-change-the-root-file-system) 的
+> `mount --make-rprivate` 就是在调整 Shared subtree ，
 > 可惜当时没仔细去查相关内容。
 
 这里可以通过 `/proc/<pid>/mounts` 查看某个进程所看到的 `mount` 。
