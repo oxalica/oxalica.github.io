@@ -11,11 +11,12 @@ window.addEventListener('load', function () {
   marked.use({
     renderer: {
       link: function (href, title, text) {
-        return '<a href="' + href
-          + (title !== null ? '" title="' + title : '')
-          + '" target="_blank">'
+        return '<a href="' + href + '"'
+          + (title !== null ? ' title="' + title + '"' : '')
+          + (href[0] !== '#' ? ' target="_blank"' : '')
+          + '>'
           + text
-          + '</a>'
+          + '</a>';
       },
       text: function (s) {
         return s.replace(/\$\((.*?)\)\$|\$\[(.*?)\]\$/g, function (m0, m1, m2) {
