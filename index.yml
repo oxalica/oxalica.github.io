@@ -18,6 +18,19 @@ articles:
     [btrfs_wiki]: https://btrfs.wiki.kernel.org/index.php/Status
     [btrfs_vs_zfs]: https://farseerfc.me/btrfs-vs-zfs-difference-in-implementing-snapshots.html
 
+- slug: "ssh_resize_root"
+  title: 只通过 ssh 离线调整 root 分区大小
+  created: 2021-02-08T00:44:42+0800
+  tags:
+  - ssh
+  - nixos
+  - linux
+  preview: |
+    - 你有一台 NixOS 机器（or whatever），有 root 权限
+    - 它只有一个 ext4 root 分区（和一个 EFI 分区）
+    - 你没法物理接触，只能通过 ssh 访问它
+    - 假设网络连接通畅
+    - 你想要 (offline) shrink root 分区
 
 - slug: "fix_nixos"
   title: "Log of fixing NixOS"
