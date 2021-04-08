@@ -5,8 +5,8 @@ window.addEventListener('load', function () {
     el.setAttribute('href', href);
     document.head.appendChild(el);
   }
-  loadCss('https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
-  loadCss('https://cdn.bootcss.com/KaTeX/0.9.0/katex.min.css');
+  loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css');
+  loadCss('https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css');
 
   const templates = {
     main: document.querySelector('#templ-main').innerText,
