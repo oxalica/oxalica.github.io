@@ -8,6 +8,24 @@ window.addEventListener('load', function () {
   loadCss('https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css');
   loadCss('https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css');
 
+  marked.use({
+    renderer: {
+      link: function (href, title, text) {
+        return '<a href="' + href
+          + (title !== null ? '" title="' + title : '')
+          + '" target="_blank">'
+          + text
+          + '</a>'
+      },
+      text: function (s) {
+        return s.replace(/\$\((.*?)\)\$|\$\[(.*?)\]\$/g, function (m0, m1, m2) {
+          const isInline = m1 !== undefined;
+          return katex.renderToString(isInline ? m1 : m2, { throwOnError: false, displayMode: !isInline });
+        });
+      },
+    },
+  });
+
   const templates = {
     main: document.querySelector('#templ-main').innerText,
     article: document.querySelector('#templ-article').innerText,
@@ -28,15 +46,7 @@ window.addEventListener('load', function () {
     fmtMarkdown: function () {
       return function (templ, render) {
         const inner = render(templ).trim();
-        const renderer = new marked.Renderer();
-        renderer.link = function (href, title, text) {
-          return '<a href="' + href
-            + (title !== null ? '" title="' + title : '')
-            + '" target="_blank">'
-            + text
-            + '</a>'
-        };
-        return marked(inner, { renderer: renderer });
+        return marked(inner);
       };
     },
     fmtUrlComponent: function () {
@@ -131,14 +141,6 @@ window.addEventListener('load', function () {
   function rerender () {
     const rendered = Mustache.render(templates.main, data, templates);
     document.querySelector('#main > .container').innerHTML = rendered;
-    document.querySelectorAll('#main > .container .article-content').forEach(function (el) {
-      renderMathInElement(el, {
-        delimiters: [
-          { left: '$(', right: ')$', display: false },
-          { left: '$[', right: ']$', display: true },
-        ],
-      });
-    });
   }
 
   function fetchText (url, cb) {
