@@ -1,4 +1,24 @@
 articles:
+- slug: "backup_with_btrfs"
+  title: "使用 Btrfs 进行数据管理与备份"
+  created: 2021-05-06T01:59:46+0800
+  tags:
+  - linux
+  - btrfs
+  - backup
+  preview: |
+    Btrfs 是个知名的 CoW (Copy-On-Write) 文件系统，其模块维护在主线 Linux 。
+    它凭借 CoW ，支持一大票特性，也仍有一部分特性不稳定或有性能问题。
+    可以在 [Btrfs Wiki][btrfs_wiki] 看到各种特性在最新 Linux 中的稳定性情况。
+
+    之前看了 Farseerfc 写的一篇[介绍 Btrfs 和 ZFS 底层实现上异同的文章][btrfs_vs_zfs]，感觉 Btrfs 真香，就入坑了。
+
+    于是本文主要介绍一下 Btrfs ，它在我个人主力电脑上的使用，以及备份相关操作。
+
+    [btrfs_wiki]: https://btrfs.wiki.kernel.org/index.php/Status
+    [btrfs_vs_zfs]: https://farseerfc.me/btrfs-vs-zfs-difference-in-implementing-snapshots.html
+
+
 - slug: "fix_nixos"
   title: "Log of fixing NixOS"
   created: 2020-04-04T01:58:18+0800
