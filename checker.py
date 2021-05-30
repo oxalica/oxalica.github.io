@@ -48,12 +48,8 @@ def checkMeta(index: dict, articles: dict):
             if 'modified' in b:
                 assert isinstance(b['modified'], list)
                 for o in b['modified']:
-                    assert set(o.keys()) == { 'time', 'from' }
+                    assert set(o.keys()) == { 'time' }
                     transDatetime(o, 'time')
-                    assert isinstance(o['from'], str)
-                    h = o['from']
-                    assert len(h) == 40
-                    assert all(c in '01223456789abcdef' for c in h)
                 assert isSorted(tuple(o['time'] for o in b['modified'])[::-1])
         except Exception as e:
             print(f'In {m.get("slug", "")}')
