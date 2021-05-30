@@ -266,6 +266,10 @@ a {
   color: #ccc;
 }
 
+.article-content blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
 .article-content :not(pre) > code {
   padding: 1px 3px;
   font-family: Consolas, Monaco, monospace;
