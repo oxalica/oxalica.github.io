@@ -1,0 +1,66 @@
+{
+  "id_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+  "act_keys": [
+    {
+      "sig": "06002a5c043e75be0fd974f31b8cc3e0bcd3b3d70e8b4e072e33e073d7f29ed6d1823b0531aa61cdedba2e6bb73092ed2b80093a1fb6fecca92aad149b2a7903",
+      "signee": {
+        "nonce": 2120597378,
+        "payload": {
+          "typ": "user_act_key",
+          "act_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+          "expire_time": 9223372036854775807,
+          "comment": "id_key"
+        },
+        "timestamp": 1726623237,
+        "id_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+        "act_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b"
+      }
+    },
+    {
+      "sig": "dee26569eb736aa369f84e24bd9dadf2873599ba7aa9742537276e7c1723403793aebf34ed8f9cd5c046e8edbaf01799b57da2bb9fd5aa7d25d96e5cf5a20f0f",
+      "signee": {
+        "nonce": 2220532290,
+        "payload": {
+          "typ": "user_act_key",
+          "act_key": "6116b18923d302483310a9c3f03d9906b1b1acf923e7a7ea2c740b5369902949",
+          "expire_time": 1758180870,
+          "comment": "test frontend"
+        },
+        "timestamp": 1726623270,
+        "id_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+        "act_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b"
+      }
+    },
+    {
+      "sig": "b1d6c4edff003222177bb33c4b60fc256666ee820708455ed70683611a52e872c5750e2909d832275c30885e1d1bbe2205b00b639d525bd9d1c9d5c229547002",
+      "signee": {
+        "nonce": 735806642,
+        "payload": {
+          "typ": "user_act_key",
+          "act_key": "a46a6b85c1283acfea9d0dbe72d1138647dc9301188ea704c57806686a66dc3c",
+          "expire_time": 1758296746,
+          "comment": "blah.oxa.li-testing-invar"
+        },
+        "timestamp": 1726739146,
+        "id_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+        "act_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b"
+      }
+    }
+  ],
+  "profile": {
+    "sig": "087b32b1daad1674c0d51a458c77d231f4b8a64620852768b77220f2a9e5741188b8cf5cb3ece6e6a857bde900ca10ff304ffb0d5b14b6a5b8b2dd59d36f5906",
+    "signee": {
+      "nonce": 1823587254,
+      "payload": {
+        "typ": "user_profile",
+        "preferred_chat_server_urls": [],
+        "id_urls": [
+          "https://oxa.li/"
+        ]
+      },
+      "timestamp": 1726739954,
+      "id_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b",
+      "act_key": "a5769e1f374b310679ca6bc59b8c3cc0dbe65758222b892e1f36d59ad43c7f9b"
+    }
+  }
+}
